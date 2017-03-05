@@ -1872,7 +1872,7 @@ class fRecordSet implements IteratorAggregate, ArrayAccess, Countable
 	public function sortByCallback($callback)
 	{
 		$records = $this->records;
-		usort($records, $callback);
+		@usort($records, $callback);
 
 		return new self(
 			$this->class,
