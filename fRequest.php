@@ -214,7 +214,11 @@ class fRequest
 
 		} elseif ($cast_to != 'binary' && $cast_to !== NULL) {
 			$cast_to = str_replace('integer!', 'integer', $cast_to);
-			settype($value, $cast_to);
+			if (is_array($value)) {
+				$value = fJSON::encode($value);
+			} else {
+				settype($value, $cast_to);
+			}
 		}
 
 		// Clean values coming in to ensure we don't have invalid UTF-8
@@ -780,7 +784,7 @@ class fRequest
 				$q = number_format(1.0, 5);
 			}
 			$q .= $suffix--;
-			
+
 			$output[trim($parts[0])] = $q;
 		}
 
