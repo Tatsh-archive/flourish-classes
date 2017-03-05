@@ -1656,7 +1656,8 @@ class fSchema
 			'box'               => 'varchar',
 			'path'              => 'varchar',
 			'polygon'           => 'varchar',
-			'circle'            => 'varchar'
+			'circle'            => 'varchar',
+			'tsvector'          => 'varchar'
 		);
 
 		$max_min_values = array(
